@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+	<title>
+		{% block title %}
+			Colours
+		{% endblock %}
+	</title>
+
+
+	<!-- for compatibility -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--  -->
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+	<!-- slick plugin -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/slick/slick.css' %}">
+ 	<link rel="stylesheet" type="text/css" href="{% static 'css/slick/slick-theme.css' %}">
+
+ 	<!-- loading screen -->
+ 	<link rel="stylesheet" type="text/css" href="{% static 'css/loader.css' %}">
+ 	
+	<!-- additional styles -->
+	{% block styles %}{% endblock %}
+	<!--  -->
+
+	<link rel="stylesheet" href="{% static 'css/colours.css' %}">
+
+</head>
+<body>
+	<div class="loader"></div>
+
+	<!-- NAV BAR// TO BE MOVED TO A DIFF FILE FOR DJANGO -->
+	<nav id="navibar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"><img id="logo" src="{% static 'img/logo.png' %}" alt=""/></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigationbar" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse flex-column" id="navigationbar">
+				<div class="navbar-nav ml-auto">
+					<form class="form-horizontal my-2 my-lg-0">
+						<input class="form-control mr-sm-2" type="search" placeholder="search..." aria-label="Search">
+						<!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+					</form>
+				</div>
+	 			<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">CAMERAS <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">LENSES</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">ACCESSORIES</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">BRANCHES</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">ORDER HERE</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">ABOUT</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--  -->
+
+	{% block pagecontent %}{% endblock %}
+
+
+	<footer style="margin-top: 70px">
+		<hr>
+		<div class="container">
+			<div class="row">
+				<div class="mt-2 col col-sm-6 col-md-3">
+					<strong>MENUS</strong><br>
+					Menu One <br>
+					Menu Two <br>
+					Menu Three <br>
+					Menu Four <br>
+				</div>
+				<div class="mt-2 col col-sm-6 col-md-3">
+					<strong>ABOUT US</strong><br>
+					Menu One <br>
+					Menu Two <br>
+					Menu Three <br>
+					Menu Four <br>
+				</div>
+				<div class="mt-2 col col-sm-6 col-md-3">
+					<strong>CONTACT US</strong><br>
+					yourname@oursite.com <br>
+					123 Street Name, Apt. 5 <br>
+					City, State, Country <br>
+					+00 000 000 0000 <br>
+				</div>
+				<div class="mt-2 col col-sm-6 col-md-3">
+					<strong>FOLLOW US</strong><br>
+					facebook logo <br>
+					instagram logo <br>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="container">
+			<div class="row">
+				<div class="col col-md-7 last-div">
+					<div>
+						BRANCHES
+					</div>
+					<div>
+						EVENTS
+					</div>
+					<div>
+						PROMOS
+					</div>
+					<div>
+						FAQs
+					</div>
+					<div>
+						BLOG
+					</div>
+				</div>
+				<div class="col col-md-3 offset-md-2">
+					(c) 2017 Kimi no Nawa
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	{% block footer %}{% endblock %}
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	
+	<!-- loading screen js -->
+	<script src="{% static 'js/loader.js' %}"></script>
+
+
+	{% block script %}{% endblock %}
+
+</body>
+</html>

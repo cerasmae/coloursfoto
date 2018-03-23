@@ -1,0 +1,87 @@
+body {
+	padding-bottom: 50px;
+}
+
+nav {
+	box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+}
+
+.container {
+	min-width: 80% !important;
+	width: 80% !important;
+}
+
+#logo {
+	height: 70px;
+	width: auto;
+}
+
+.carousel-item {
+ 	/*height: calc(100vh - 116px);*/
+ 	height: 65vh;
+ 	min-height: 400px;
+ 	background: no-repeat center center scroll;
+ 	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+ 	-o-background-size: cover;
+ 	background-size: cover;
+}
+
+.latest-products-div {
+	margin: 50px auto;
+	padding: 40px;
+	width: 100%;
+	/*color: #419be0;*/
+	color: rgb(150, 150, 150);
+	border: solid rgb(150, 150, 150);
+	background: transparent;
+	/*border: solid #419be0;*/
+}
+
+.slick-slide {
+	text-align: center;
+	color: white;
+	background: rgb(150, 150, 150);
+	padding: 30px;
+	margin: 5px;
+}
+
+.slick-prev:before, .slick-next:before {
+	color: rgb(150, 150, 150);
+}
+
+.featured-div, .faq {
+	background: rgb(150, 150, 150);
+	text-align: center;
+	color: white;
+	padding: 30px;
+}
+
+.featured-div {
+	height: 400px;
+}
+
+.last-div {
+	display: flex; 
+	justify-content: space-between; 
+	font-weight: bold;
+}
+
+
+@media only screen and (max-width: 992px) {
+    #logo {
+        height: 45px;
+    }
+
+    .carousel-item {
+    	height: 50vh;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+	.last-div {
+		display: block; 
+		font-weight: bold;
+	}
+
+}
