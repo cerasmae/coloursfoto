@@ -35,7 +35,7 @@
 	<link rel="stylesheet" href="{% static 'css/colours.css' %}">
 
 </head>
-<body>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="15">
 	<div class="loader"></div>
 
 	<!-- NAV BAR// TO BE MOVED TO A DIFF FILE FOR DJANGO -->
@@ -54,8 +54,24 @@
 					</form>
 				</div>
 	 			<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">CAMERAS <span class="sr-only">(current)</span></a>
+					<li class="nav-item dropdown">
+						<a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    CAMERAS
+					    	<span class="caret"></span>
+					  	</a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'cameras' selected='compact' %}">COMPACT</a></li>
+							<li role="separator" class="divider"></li>
+            				<li><a href="{% url 'cameras' selected='digital-slr' %}">DIGITAL SLR</a></li>
+							<li role="separator" class="divider"></li>
+            				<li><a href="{% url 'cameras' selected='mirrorless' %}">MIRRORLESS</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="{% url 'cameras' selected='action-camera' %}">ACTION CAMERA</a></li>
+							<li role="separator" class="divider"></li>
+            				<li><a href="{% url 'cameras' selected='drone' %}">DRONE</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="{% url 'cameras' selected='film-camera' %}">FILM CAMERA</a></li>
+						</ul>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">LENSES</a>
@@ -81,7 +97,7 @@
 	{% block pagecontent %}{% endblock %}
 
 
-	<footer style="margin-top: 70px">
+	<!-- <footer style="margin-top: 70px">
 		<hr>
 		<div class="container">
 			<div class="row">
@@ -138,8 +154,41 @@
 				</div>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 
+	<footer style="margin-top: 70px">
+		<hr>
+		<div class="container">
+			<div class="row">
+				<div class="mt-3 col col-xs-12 col-sm-12 col-md-4">
+					(c) Company <br>
+
+				</div>
+				<div class="mt-3 col col-xs-12 col-sm-12 col-md-8">
+					<div class="row">
+						<div class="col col-sm-4">
+							<strong>First</strong><br>
+							Menu One <br>
+							Menu Two <br>
+							Menu Three <br>
+						</div>
+						<div class="col col-sm-4">
+							<strong>Second</strong><br>
+							Menu One <br>
+							Menu Two <br>
+							Menu Three <br>
+						</div>
+						<div class="col col-sm-4">
+							<strong>Third</strong><br>
+							Menu One <br>
+							Menu Two <br>
+							Menu Three <br>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 	{% block footer %}{% endblock %}
 
@@ -153,7 +202,15 @@
 	<!-- loading screen js -->
 	<script src="{% static 'js/loader.js' %}"></script>
 
+	<script type="text/javascript">
+		$(window).on('load', function () {
+			 $("body").css("padding-top", $('#navibar').height() + 35);
+		});
 
+		$(window).on('resize', function () {
+			 $("body").css("padding-top", $('#navibar').height() + 35);
+		});
+	</script>
 	{% block script %}{% endblock %}
 
 </body>

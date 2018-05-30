@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pagecontent %}
+<div id="cameras-container" class="container-fluid">
+	<ul class="breadcrumb" style="margin-right: 0">
+	  <li><a href="{% url 'index' %}">Home</a></li>
+	  <li><a href="#">Cameras</a></li>
+	  <li id="selected-category"></li>
+	</ul>
+
+	<div class="row">
+		<div class="mt-2 col-xs-12 col-md-3">
+			<div class="sidenav" data-spy="affix" data-offset-top="0">
+				<div id="categories">
+					<a href="{% url 'cameras' selected='compact' %}" id="compact">Compact</a>
+					<a href="{% url 'cameras' selected='digital-slr' %}" id="digital-slr">Digital SLR</a>
+					<a href="{% url 'cameras' selected='mirrorless' %}" id="mirrorless">Mirrorless</a>
+					<a href="{% url 'cameras' selected='action-camera' %}" id="action-camera">Action Camera</a>
+					<a href="{% url 'cameras' selected='drone' %}" id="drone">Drone</a>
+					<a href="{% url 'cameras' selected='film-camera' %}" id="film-camera">Film Camera</a>
+				</div>
+
+				<div id="filter">
+					<div>FILTER BY BRAND</div>
+					canon<br>
+					nikon<br>
+					fujifilm<br>
+					etc
+				</div>
+			</div>
+
+		</div>
+		<div class="mt-2 col-xs-12 col-md-9">
+			<div style="height: 1000px">
+				<h3 id="selected-category-header"></h3>
+				200 items found/sort by/views
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+	$(window).on('load resize', function () {
+		// Fit affix width to its parent's width
+        var $affixElement = $('div[data-spy="affix"]');
+        $affixElement.width($affixElement.parent().width());
+
+        $('#cameras-container').css("min-height", $('.sidenav').height() + 50 + "px");
+
+        if($(window).width() <= 767){
+        	$('.sidenav').css("position", "relative");
+        }
+    	// adding active class to the selected category
+        $('.sidenav a').removeClass('active');
+
+        if("{{ selected }}" == 'compact'){
+        	$('#compact').addClass('active');
+        	$('#selected-category').text("Compact");
+        	$('#selected-category-header').text("COMPACT CAMERAS");
+        }
+        else if("{{ selected }}" == 'digital-slr'){
+        	$('#digital-slr').addClass('active');
+        	$('#selected-category').text("Digital SLR");
+        	$('#selected-category-header').text("DIGITAL SLR CAMERAS");
+        }
+        else if("{{ selected }}" == 'mirrorless'){
+        	$('#mirrorless').addClass('active');
+        	$('#selected-category').text("Mirrorless");
+        	$('#selected-category-header').text("MIRRORLESS CAMERAS");
+        }
+        else if("{{ selected }}" == 'action-camera'){
+        	$('#action-camera').addClass('active');
+        	$('#selected-category').text("Action Camera");
+        	$('#selected-category-header').text("ACTION CAMERAS");
+        }
+        else if("{{ selected }}" == 'drone'){
+        	$('#drone').addClass('active');
+        	$('#selected-category').text("Drone");
+        	$('#selected-category-header').text("DRONES");
+        }
+        else if("{{ selected }}" == 'film-camera'){
+        	$('#film-camera').addClass('active');
+        	$('#selected-category').text("Film Camera");
+        	$('#selected-category-header').text("FILM CAMERAS");
+        }
+        
+	});
+
+	$(window).on('load scroll', function () {
+		// console.log(($(window).scrollTop() + $('.sidenav').height() )+ " " + ( $('body').height() - $('footer').height() - 100));
+		if($(window).width() > 767){
+			if($(window).scrollTop() + $('.sidenav').height() >= $('body').height() - $('footer').height() - 100){
+				$('.sidenav').css("position", "absolute");
+				if($('body').height() - $('footer').height() >= 618){
+					$('.sidenav').css("bottom", 0);
+				}	
+			}
+			else{
+				$('.sidenav').css("position", "fixed");
+				$('.sidenav').css("margin-top", 0);
+				$('.sidenav').css("bottom", "auto");
+			}
+		}
+	});
+</script>
+{% endblock %}
+

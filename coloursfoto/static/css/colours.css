@@ -67,6 +67,100 @@ nav {
 	font-weight: bold;
 }
 
+.dropdown-menu {
+	padding: 10px 13px;
+	border-radius: 0;
+	width: auto;
+}
+
+.dropdown-menu a {
+	color: gray;
+	margin: 7px;
+	font-size: 18px;
+}
+
+.dropdown-menu a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+/* Style the list */
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #eee;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: ">\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+
+/* The sidebar menu */
+.sidenav {
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding: 0;
+}
+
+.sidenav > #categories {
+	display: block;
+	margin-bottom: 35px;
+}
+
+.sidenav > #categories a {
+    padding: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 19px;
+    color: black;
+    display: block;
+    background-color: #eee;
+    text-align: center;
+    font-weight: normal;
+    border: 1px #ccc solid;
+}
+
+.sidenav > #categories a.active {
+	background-color: white;
+	font-weight: bold;
+	border-right: none;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav > #categories a:hover {
+    background-color: #ddd;
+}
+
+.sidenav > #filter > div:first-child{
+	background-color: lightblue;
+	font-size: 16px;
+	width: 100%;
+	text-align: center;
+	padding: 8px;
+	margin-bottom: 10px;
+}
 
 @media only screen and (max-width: 992px) {
     #logo {
@@ -75,8 +169,26 @@ nav {
 
     .carousel-item {
     	height: 50vh;
-    }
+    }    
+
+    .dropdown-menu {
+		border: none;
+	}
 }
+
+@media only screen and (min-width: 993px) {
+	.dropdown:hover .dropdown-menu {
+		display: block;
+		border: 1px black gray;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.sidenav > #categories{
+	    display: none;
+	}
+}
+
 
 @media only screen and (max-width: 550px) {
 	.last-div {
